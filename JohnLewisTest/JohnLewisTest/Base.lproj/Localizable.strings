@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  JohnLewisTest
+
+  Created by Kesavasankar Jawaharlal on 18/05/2017.
+  Copyright © 2017 Small Screen Science Ltd. All rights reserved.
+*/
+
+//MARK: - Landing Page
+
+"landing_page-title" =  "Dishwashers";

@@ -8,11 +8,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UICollectionViewController {
 
+    //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        title = NSLocalizedString("landing_page-title", comment: "")
     }
 
     override func didReceiveMemoryWarning() {
