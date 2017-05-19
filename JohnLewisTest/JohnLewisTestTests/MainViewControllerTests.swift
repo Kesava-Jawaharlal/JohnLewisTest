@@ -29,6 +29,7 @@ class MainViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
+    //MARK: - General Tests
     func test_CanInstantiateViewController() {
         XCTAssertNotNil(viewControllerToTest)
     }
@@ -37,6 +38,11 @@ class MainViewControllerTests: XCTestCase {
         XCTAssertNotNil(viewControllerToTest.collectionView)
     }
     
+    func testTitleIsSet() {
+        XCTAssertTrue(viewControllerToTest.title == NSLocalizedString("landing_page-title", comment: ""))
+    }
+    
+    //MARK: - Tests to see conformance to collection view delegate and datasource methods
     func test_ShouldSetCollectionViewDataSource() {
         XCTAssertNotNil(viewControllerToTest.collectionView?.dataSource)
     }
@@ -56,12 +62,9 @@ class MainViewControllerTests: XCTestCase {
         XCTAssertTrue(viewControllerToTest.responds(to: #selector(viewControllerToTest.collectionView(_:didSelectItemAt:))))
     }
     
-    //    func test_HasItemsForCollectionView() {
-    //        XCTAssertNotNil(viewControllerToTest.items)
-    //    }
-    
-
-    func testTitleIsSet() {
-        XCTAssertTrue(viewControllerToTest.title == NSLocalizedString("landing_page-title", comment: ""))
+    //MARK: - Tests for collection view
+    func test_HasNoItemsForCollectionView() {
+        XCTAssertNil(viewControllerToTest.productList)
     }
+    
 }
