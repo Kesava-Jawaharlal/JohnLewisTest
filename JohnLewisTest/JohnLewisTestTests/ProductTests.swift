@@ -31,6 +31,21 @@ class ProductTests: XCTestBaseClass {
         XCTAssertNil(product)
     }
     
+    func test_InitialiseProductWithoutPriceJson() {
+        //Init
+        let json = convert(from: "{" +
+            "\"productId\": \"1212\", " +
+            "\"title\": \"Dishwasher\", " +
+            "\"image\": \"http://k.com/k.png\" " +
+            "}")!
+        
+        //Subject
+        let product = Product(from: json)
+        
+        //Tests
+        XCTAssertNil(product)
+    }
+    
     func test_InitialiseProductWithOneItemInJson() {
         //Init
         let json = convert(from: "{" +
@@ -48,5 +63,70 @@ class ProductTests: XCTestBaseClass {
         
         //Tests
         XCTAssertNotNil(product)
+    }
+    
+    func test_InitialiseProductAndSeeIfValuesAreProper() {
+        //Init
+        let json = convert(from: "{" +
+            "\"productId\": \"1212\", " +
+            "\"title\": \"Dishwasher\", " +
+            "\"image\": \"http://k.com/k.png\", " +
+            "\"price\": { " +
+            "\"now\": \"200.00\", " +
+            "\"currency\": \"GBP\" " +
+            "}" +
+            "}")!
+        
+        //Subject
+        let product = Product(from: json)!
+        
+        //Tests
+        XCTAssertEqual(product.productId, 1212)
+        XCTAssertEqual(product.title, "Dishwasher")
+        XCTAssertEqual(product.imageUrl.absoluteString, "http://k.com/k.png")
+    }
+    
+    
+    //MARK: - Price Tests
+    
+    func test_InitialisePriceWithEmptyJson() {
+        //Init
+        let json = convert(from: "{}")!
+        
+        //Subject
+        let price = Price(from: json)
+        
+        //Tests
+        XCTAssertNil(price)
+    }
+    
+    func test_InitialisePriceWithproperJson() {
+        //Init
+        let json = convert(from: "{" +
+            "\"now\": \"200.00\", " +
+            "\"currency\": \"GBP\" " +
+            "}")!
+        
+        //Subject
+        let price = Price(from: json)
+        
+        //Tests
+        XCTAssertNotNil(price)
+    }
+    
+    
+    func test_InitialisePriceandseeIfValuesAreProper() {
+        //Init
+        let json = convert(from: "{" +
+            "\"now\": \"200.00\", " +
+            "\"currency\": \"GBP\" " +
+            "}")!
+        
+        //Subject
+        let price = Price(from: json)!
+        
+        //Tests
+        XCTAssertEqual(price.value, 200)
+        XCTAssertEqual(price.currencyISOCode, "GBP")
     }
 }
