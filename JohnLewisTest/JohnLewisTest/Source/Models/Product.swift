@@ -16,6 +16,7 @@ fileprivate enum ParsingKey {
     static let value = "now"
     static let currency = "currency"
 }
+
 struct Product {
     var productId: Int
     var title: String

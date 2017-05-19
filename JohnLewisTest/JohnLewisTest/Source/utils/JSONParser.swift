@@ -8,12 +8,24 @@
 
 import Foundation
 
+fileprivate enum ParsingKey {
+    static let product = "product"
+}
+
 class JSONParser {
-    func parse(json: String) -> [Product] {
-//        guard let 
+    static func parse(jsonString: String) -> [Product] {
+        guard let jsonDict = jsonString.convertToJsonDict(),
+        let productsList = jsonDict[ParsingKey.product] as? [[String: Any]] else {
+            return []
+        }
+        
         var result = [Product]()
         
-        
+        productsList.forEach { (productDict) in
+            if let product = Product(from: productDict) {
+                result.append(product)
+            }
+        }
         
         return result
     }

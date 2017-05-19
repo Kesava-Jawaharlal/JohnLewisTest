@@ -69,15 +69,7 @@ class MainViewControllerTests: XCTestCase {
     
     func test_CollectionView_shouldHaveOneItemIfDatasourceIsInitialisedWithOneElement() {
         //Inits
-        let json = "{" +
-            "\"productId\": \"1212\", " +
-            "\"title\": \"Dishwasher\", " +
-            "\"image\": \"http://k.com/k.png\", " +
-            "\"price\": { " +
-            "\"now\": \"200.00\", " +
-            "\"currency\": \"GBP\" " +
-            "}" +
-            "}".convertToJsonDict()!
+        let json = "{\"productId\": \"1212\",  \"title\": \"Dishwasher\",  \"image\": \"http://k.com/k.png\",  \"price\": { \"now\": \"200.00\",  \"currency\": \"GBP\"  } }".convertToJsonDict()!
         
         viewControllerToTest.productList = [Product(from: json)!, Product(from: json)!]
         
