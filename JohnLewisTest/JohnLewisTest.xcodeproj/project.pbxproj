@@ -22,6 +22,7 @@
 		0AF127BF1ECE5A520090CF65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AF127BD1ECE5A520090CF65 /* LaunchScreen.storyboard */; };
 		0AF127CA1ECE5A520090CF65 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF127C91ECE5A520090CF65 /* MainViewControllerTests.swift */; };
 		0AF127D51ECE5A520090CF65 /* JohnLewisTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF127D41ECE5A520090CF65 /* JohnLewisTestUITests.swift */; };
+		6D998C7DD5CD818A9F241612 /* Pods_JohnLewisTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2DFDE9078F7D751A9AC284 /* Pods_JohnLewisTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,9 @@
 		0AF127D01ECE5A520090CF65 /* JohnLewisTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JohnLewisTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF127D41ECE5A520090CF65 /* JohnLewisTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JohnLewisTestUITests.swift; sourceTree = "<group>"; };
 		0AF127D61ECE5A520090CF65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C1DBEEEFD8A246F88795465 /* Pods-JohnLewisTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JohnLewisTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JohnLewisTest/Pods-JohnLewisTest.debug.xcconfig"; sourceTree = "<group>"; };
+		B89CA39C70A9FC6DEF9E7BAC /* Pods-JohnLewisTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JohnLewisTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-JohnLewisTest/Pods-JohnLewisTest.release.xcconfig"; sourceTree = "<group>"; };
+		BE2DFDE9078F7D751A9AC284 /* Pods_JohnLewisTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JohnLewisTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D998C7DD5CD818A9F241612 /* Pods_JohnLewisTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +142,8 @@
 				0AF127C81ECE5A520090CF65 /* JohnLewisTestTests */,
 				0AF127D31ECE5A520090CF65 /* JohnLewisTestUITests */,
 				0AF127B21ECE5A520090CF65 /* Products */,
+				A7DF8EADF79C1D0DA80FD608 /* Pods */,
+				4D059C680C7190C674069F42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,6 +220,23 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		4D059C680C7190C674069F42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE2DFDE9078F7D751A9AC284 /* Pods_JohnLewisTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7DF8EADF79C1D0DA80FD608 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C1DBEEEFD8A246F88795465 /* Pods-JohnLewisTest.debug.xcconfig */,
+				B89CA39C70A9FC6DEF9E7BAC /* Pods-JohnLewisTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,9 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AF127D91ECE5A520090CF65 /* Build configuration list for PBXNativeTarget "JohnLewisTest" */;
 			buildPhases = (
+				79AA6CF1036E158AA93798EE /* [CP] Check Pods Manifest.lock */,
 				0AF127AD1ECE5A520090CF65 /* Sources */,
 				0AF127AE1ECE5A520090CF65 /* Frameworks */,
 				0AF127AF1ECE5A520090CF65 /* Resources */,
+				F42C2D760FC0703AD437CE6B /* [CP] Embed Pods Frameworks */,
+				DA767A5A33382A2108242D92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -342,6 +369,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79AA6CF1036E158AA93798EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA767A5A33382A2108242D92 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JohnLewisTest/Pods-JohnLewisTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F42C2D760FC0703AD437CE6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JohnLewisTest/Pods-JohnLewisTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AF127AD1ECE5A520090CF65 /* Sources */ = {
@@ -518,6 +593,7 @@
 		};
 		0AF127DA1ECE5A520090CF65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C1DBEEEFD8A246F88795465 /* Pods-JohnLewisTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JohnLewisTest/Info.plist;
@@ -530,6 +606,7 @@
 		};
 		0AF127DB1ECE5A520090CF65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B89CA39C70A9FC6DEF9E7BAC /* Pods-JohnLewisTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JohnLewisTest/Info.plist;
