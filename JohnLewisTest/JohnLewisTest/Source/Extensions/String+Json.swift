@@ -1,18 +1,17 @@
 //
-//  XCTestBaseClass.swift
+//  String+Json.swift
 //  JohnLewisTest
 //
 //  Created by Kesavasankar Jawaharlal on 19/05/2017.
 //  Copyright © 2017 Small Screen Science Ltd. All rights reserved.
 //
 
-import XCTest
+import Foundation
 
-class XCTestBaseClass: XCTestCase {
-    
+extension String {
     //MARK: - Helpers for string to dict
-    func convert(from text: String) -> [String: Any]? {
-        guard let data = text.data(using: .utf8) else {
+    func convertToJsonDict() -> [String: Any]? {
+        guard let data = self.data(using: .utf8) else {
             return nil
         }
         

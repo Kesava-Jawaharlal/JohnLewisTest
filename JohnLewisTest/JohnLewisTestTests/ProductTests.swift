@@ -9,7 +9,7 @@
 import XCTest
 @testable import JohnLewisTest
 
-class ProductTests: XCTestBaseClass {
+class ProductTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,7 +22,7 @@ class ProductTests: XCTestBaseClass {
     //MARK: - General Tests
     func test_InitialiseProductWithEmptyJson() {
         //Init
-        let json = convert(from: "{}")!
+        let json = "{}".convertToJsonDict()!
         
         //Subject
         let product = Product(from: json)
@@ -33,11 +33,11 @@ class ProductTests: XCTestBaseClass {
     
     func test_InitialiseProductWithoutPriceJson() {
         //Init
-        let json = convert(from: "{" +
+        let json = "{" +
             "\"productId\": \"1212\", " +
             "\"title\": \"Dishwasher\", " +
             "\"image\": \"http://k.com/k.png\" " +
-            "}")!
+            "}".convertToJsonDict()!
         
         //Subject
         let product = Product(from: json)
@@ -48,7 +48,7 @@ class ProductTests: XCTestBaseClass {
     
     func test_InitialiseProductWithOneItemInJson() {
         //Init
-        let json = convert(from: "{" +
+        let json = "{" +
             "\"productId\": \"1212\", " +
             "\"title\": \"Dishwasher\", " +
             "\"image\": \"http://k.com/k.png\", " +
@@ -56,7 +56,7 @@ class ProductTests: XCTestBaseClass {
                 "\"now\": \"200.00\", " +
                 "\"currency\": \"GBP\" " +
                 "}" +
-            "}")!
+            "}".convertToJsonDict()!
         
         //Subject
         let product = Product(from: json)
@@ -67,7 +67,7 @@ class ProductTests: XCTestBaseClass {
     
     func test_InitialiseProductAndSeeIfValuesAreProper() {
         //Init
-        let json = convert(from: "{" +
+        let json = "{" +
             "\"productId\": \"1212\", " +
             "\"title\": \"Dishwasher\", " +
             "\"image\": \"http://k.com/k.png\", " +
@@ -75,7 +75,7 @@ class ProductTests: XCTestBaseClass {
             "\"now\": \"200.00\", " +
             "\"currency\": \"GBP\" " +
             "}" +
-            "}")!
+            "}".convertToJsonDict()!
         
         //Subject
         let product = Product(from: json)!
@@ -91,7 +91,7 @@ class ProductTests: XCTestBaseClass {
     
     func test_InitialisePriceWithEmptyJson() {
         //Init
-        let json = convert(from: "{}")!
+        let json = "{}".convertToJsonDict()!
         
         //Subject
         let price = Price(from: json)
@@ -102,10 +102,10 @@ class ProductTests: XCTestBaseClass {
     
     func test_InitialisePriceWithproperJson() {
         //Init
-        let json = convert(from: "{" +
+        let json = "{" +
             "\"now\": \"200.00\", " +
             "\"currency\": \"GBP\" " +
-            "}")!
+            "}".convertToJsonDict()!
         
         //Subject
         let price = Price(from: json)
@@ -117,10 +117,10 @@ class ProductTests: XCTestBaseClass {
     
     func test_InitialisePriceandseeIfValuesAreProper() {
         //Init
-        let json = convert(from: "{" +
+        let json = "{" +
             "\"now\": \"200.00\", " +
             "\"currency\": \"GBP\" " +
-            "}")!
+            "}".convertToJsonDict()!
         
         //Subject
         let price = Price(from: json)!
