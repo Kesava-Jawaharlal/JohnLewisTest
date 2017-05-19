@@ -10,6 +10,9 @@ import UIKit
 
 class MainViewController: UICollectionViewController {
 
+    //MARK: - Vars
+    var productList: [Product]?
+    
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,10 @@ class MainViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
+extension MainViewController {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: MainPageProductCell.reuseIdentifierString, for: indexPath)
+    }
+}

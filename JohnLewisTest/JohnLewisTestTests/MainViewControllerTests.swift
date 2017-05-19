@@ -26,10 +26,41 @@ class MainViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
-
         super.tearDown()
     }
     
+    func test_CanInstantiateViewController() {
+        XCTAssertNotNil(viewControllerToTest)
+    }
+    
+    func test_CollectionViewIsNotNilAfterViewDidLoad() {
+        XCTAssertNotNil(viewControllerToTest.collectionView)
+    }
+    
+    func test_ShouldSetCollectionViewDataSource() {
+        XCTAssertNotNil(viewControllerToTest.collectionView?.dataSource)
+    }
+    
+    func test_ConformsToCollectionViewDataSource() {
+        XCTAssert(viewControllerToTest.conforms(to: UICollectionViewDataSource.self))
+        XCTAssertTrue(viewControllerToTest.responds(to: #selector(viewControllerToTest.collectionView(_:numberOfItemsInSection:))))
+        XCTAssertTrue(viewControllerToTest.responds(to: #selector(viewControllerToTest.collectionView(_:cellForItemAt:))))
+    }
+    
+    func test_ShouldSetCollectionViewDelegate() {
+        XCTAssertNotNil(viewControllerToTest.collectionView?.delegate)
+    }
+    
+    func test_ConformsToCollectionViewDelegate() {
+        XCTAssert(viewControllerToTest.conforms(to: UICollectionViewDelegate.self))
+        XCTAssertTrue(viewControllerToTest.responds(to: #selector(viewControllerToTest.collectionView(_:didSelectItemAt:))))
+    }
+    
+    //    func test_HasItemsForCollectionView() {
+    //        XCTAssertNotNil(viewControllerToTest.items)
+    //    }
+    
+
     func testTitleIsSet() {
         XCTAssertTrue(viewControllerToTest.title == NSLocalizedString("landing_page-title", comment: ""))
     }
