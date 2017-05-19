@@ -22,4 +22,9 @@ extension String {
             return nil
         }
     }
+    
+    func getSymbolForCurrencyCode() -> String? {
+        let locale = NSLocale(localeIdentifier: self)
+        return locale.displayName(forKey: NSLocale.Key.currencySymbol, value: self)
+    }
 }

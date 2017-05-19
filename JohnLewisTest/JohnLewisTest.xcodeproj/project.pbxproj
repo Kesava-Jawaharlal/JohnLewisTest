@@ -23,6 +23,7 @@
 		0AF127CA1ECE5A520090CF65 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF127C91ECE5A520090CF65 /* MainViewControllerTests.swift */; };
 		0AF127D51ECE5A520090CF65 /* JohnLewisTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF127D41ECE5A520090CF65 /* JohnLewisTestUITests.swift */; };
 		6D998C7DD5CD818A9F241612 /* Pods_JohnLewisTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2DFDE9078F7D751A9AC284 /* Pods_JohnLewisTest.framework */; };
+		935425C31ECF0F48000D691B /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935425C21ECF0F48000D691B /* DetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0AF127D41ECE5A520090CF65 /* JohnLewisTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JohnLewisTestUITests.swift; sourceTree = "<group>"; };
 		0AF127D61ECE5A520090CF65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C1DBEEEFD8A246F88795465 /* Pods-JohnLewisTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JohnLewisTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JohnLewisTest/Pods-JohnLewisTest.debug.xcconfig"; sourceTree = "<group>"; };
+		935425C21ECF0F48000D691B /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailedViewController.swift; path = Source/ViewControllers/DetailedViewController.swift; sourceTree = "<group>"; };
 		B89CA39C70A9FC6DEF9E7BAC /* Pods-JohnLewisTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JohnLewisTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-JohnLewisTest/Pods-JohnLewisTest.release.xcconfig"; sourceTree = "<group>"; };
 		BE2DFDE9078F7D751A9AC284 /* Pods_JohnLewisTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JohnLewisTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				0AF127B61ECE5A520090CF65 /* MainViewController.swift */,
+				935425C21ECF0F48000D691B /* DetailedViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				0AF127B71ECE5A520090CF65 /* MainViewController.swift in Sources */,
 				0A6B23331ECEFAD2009BE20F /* JSONParser.swift in Sources */,
+				935425C31ECF0F48000D691B /* DetailedViewController.swift in Sources */,
 				0A6B232B1ECE63E6009BE20F /* Product.swift in Sources */,
 				0A6B23281ECE608F009BE20F /* MainPageProductCell.swift in Sources */,
 				0A6B23361ECEFB72009BE20F /* String+Json.swift in Sources */,
@@ -595,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C1DBEEEFD8A246F88795465 /* Pods-JohnLewisTest.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JohnLewisTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -608,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B89CA39C70A9FC6DEF9E7BAC /* Pods-JohnLewisTest.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JohnLewisTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

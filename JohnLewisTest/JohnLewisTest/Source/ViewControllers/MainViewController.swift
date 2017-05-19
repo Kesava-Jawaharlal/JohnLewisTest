@@ -12,6 +12,7 @@ class MainViewController: UICollectionViewController {
 
     //MARK: - Vars
     var productList: [Product]?
+    var tappedProduct: Product!
     
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
@@ -25,6 +26,14 @@ class MainViewController: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.destination is DetailedViewController {
+            (segue.destination as! DetailedViewController).product = tappedProduct
+        }
+        
     }
 }
 
@@ -44,7 +53,8 @@ extension MainViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        tappedProduct = productList![indexPath.item]
+        performSegue(withIdentifier: "ShowDetail", sender: self)
     }
 }
 

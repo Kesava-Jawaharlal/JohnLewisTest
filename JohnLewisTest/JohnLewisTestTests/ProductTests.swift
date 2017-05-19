@@ -55,7 +55,7 @@ class ProductTests: XCTestCase {
     
     func test_InitialiseProductAndSeeIfValuesAreProper() {
         //Init
-        let json = "{\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"http://k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }".convertToJsonDict()!
+        let json = "{\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"//k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }".convertToJsonDict()!
         
         //Subject
         let product = Product(from: json)!
@@ -101,6 +101,6 @@ class ProductTests: XCTestCase {
         
         //Tests
         XCTAssertEqual(price.value, 200)
-        XCTAssertEqual(price.currencyISOCode, "GBP")
+        XCTAssertEqual(price.currencySymbol, "£")
     }
 }

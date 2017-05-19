@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MainPageProductCell: UICollectionViewCell {
     
@@ -21,8 +22,16 @@ class MainPageProductCell: UICollectionViewCell {
     var data: Product? {
         didSet {
             descriptionLabel.text = data?.title
-            priceLabel.text = "\(data!.price.value)"
-            
+            priceLabel.text = data!.price.currencySymbol + "\(data!.price.value)"
+            imageView.af_setImage(withURL: data!.imageUrl)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.af_cancelImageRequest()
+        imageView.layer.removeAllAnimations()
+        imageView.image = nil
     }
 }

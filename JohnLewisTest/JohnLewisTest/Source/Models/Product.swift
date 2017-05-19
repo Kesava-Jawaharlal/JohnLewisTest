@@ -28,7 +28,7 @@ struct Product {
             let productId = Int(productIdString),
             let title = json[ParsingKey.title] as? String,
             let imageUrlString = json[ParsingKey.image] as? String,
-            let imageUrl = URL(string: imageUrlString),
+            let imageUrl = URL(string: "http:" + imageUrlString),
             let priceDict = json[ParsingKey.price] as? [String: Any],
             let price = Price(from: priceDict) else {
                 return nil
@@ -42,15 +42,18 @@ struct Product {
 
 struct Price {
     var value: Float
-    var currencyISOCode: String
+    var currencySymbol: String
     
     init?(from json: [String:Any]) {
         guard let valueString = json[ParsingKey.value] as? String,
             let value = Float(valueString),
-            let currencyISOCode = json[ParsingKey.currency] as? String else {
+            let currencyISOCode = json[ParsingKey.currency] as? String,
+            let currentSymbol = currencyISOCode.getSymbolForCurrencyCode() else {
                 return nil
         }
         self.value = value
-        self.currencyISOCode = currencyISOCode
+        self.currencySymbol = currentSymbol
     }
+    
+    
 }
