@@ -17,4 +17,12 @@ class MainPageProductCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    //MARK: - Vars
+    var data: Product? {
+        didSet {
+            descriptionLabel.text = data?.title
+            priceLabel.text = "\(data!.price.value)"
+            
+        }
+    }
 }

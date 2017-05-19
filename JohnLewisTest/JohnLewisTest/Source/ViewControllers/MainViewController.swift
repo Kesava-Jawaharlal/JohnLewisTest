@@ -35,7 +35,12 @@ extension MainViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: MainPageProductCell.reuseIdentifierString, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPageProductCell.reuseIdentifierString, for: indexPath) as! MainPageProductCell
+        let product = productList![indexPath.item]
+        
+        cell.data = product
+        
+        return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -53,7 +58,10 @@ extension MainViewController {
             }
             
             self.productList = JSONParser.parse(jsonString: result)
-            self.collectionView?.reloadData()
+            
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
         }
     }
 }
