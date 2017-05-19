@@ -18,6 +18,8 @@ class MainViewController: UICollectionViewController {
         super.viewDidLoad()
         
         title = NSLocalizedString("landing_page-title", comment: "")
+        
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +28,7 @@ class MainViewController: UICollectionViewController {
     }
 }
 
+//MARK: - Collection View Delegate and Data source methods
 extension MainViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productList?.count ?? 0
@@ -37,5 +40,20 @@ extension MainViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    }
+}
+
+//MARK: utility Methods
+extension MainViewController {
+    fileprivate func loadData() {
+        Network.makeGetCall(with: URL(string: "https://api.johnlewis.com/v1/products/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20")!) { (result, error) in
+            
+            guard let result = result, error == nil else {
+                return
+            }
+            
+            self.productList = JSONParser.parse(jsonString: result)
+            self.collectionView?.reloadData()
+        }
     }
 }

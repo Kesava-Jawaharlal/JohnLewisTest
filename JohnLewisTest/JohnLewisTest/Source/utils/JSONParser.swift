@@ -9,13 +9,13 @@
 import Foundation
 
 fileprivate enum ParsingKey {
-    static let product = "product"
+    static let products = "products"
 }
 
 class JSONParser {
     static func parse(jsonString: String) -> [Product] {
         guard let jsonDict = jsonString.convertToJsonDict(),
-        let productsList = jsonDict[ParsingKey.product] as? [[String: Any]] else {
+        let productsList = jsonDict[ParsingKey.products] as? [[String: Any]] else {
             return []
         }
         

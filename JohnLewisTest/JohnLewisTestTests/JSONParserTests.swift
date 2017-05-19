@@ -31,7 +31,7 @@ class JSONParserTests: XCTestCase {
     
     func test_InitialiseParserWithOneProduct() {
         //Subject
-        let productList = JSONParser.parse(jsonString: "{ \"product\":[{\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"http://k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }]}")
+        let productList = JSONParser.parse(jsonString: "{ \"products\":[{\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"http://k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }]}")
         
         //Tests
         XCTAssertNotNil(productList)
@@ -40,7 +40,7 @@ class JSONParserTests: XCTestCase {
     
     func test_InitialiseParserWithMultipleProducts() {
         //Subject
-        let productList = JSONParser.parse(jsonString: "{ \"product\":[{\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"http://k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }, {\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"http://k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }]}")
+        let productList = JSONParser.parse(jsonString: "{ \"products\":[{\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"http://k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }, {\"productId\": \"1212\", \"title\": \"Dishwasher\", \"image\": \"http://k.com/k.png\", \"price\": { \"now\": \"200.00\", \"currency\": \"GBP\" } }]}")
         
         //Tests
         XCTAssertNotNil(productList)
