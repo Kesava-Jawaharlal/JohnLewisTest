@@ -67,4 +67,14 @@ class MainViewControllerTests: XCTestCase {
         XCTAssertNil(viewControllerToTest.productList)
     }
     
+    func test_CollectionView_shouldHaveOneItemIfDatasourceIsInitialisedWithOneElement() {
+        //Inits
+        viewControllerToTest.productList = [Product(), Product()]
+        
+        //Subject
+        viewControllerToTest.collectionView?.reloadData()
+        
+        //Tests
+        XCTAssertEqual(viewControllerToTest.collectionView!.numberOfItems(inSection: 0), 2)
+    }
 }
