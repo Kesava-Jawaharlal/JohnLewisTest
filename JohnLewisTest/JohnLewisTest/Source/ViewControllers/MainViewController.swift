@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HexLoader
 
 class MainViewController: UICollectionViewController {
 
@@ -61,8 +62,11 @@ extension MainViewController {
 //MARK: utility Methods
 extension MainViewController {
     fileprivate func loadData() {
+        startLoading()
+        
         Network.makeGetCall(with: URL(string: "https://api.johnlewis.com/v1/products/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20")!) { (result, error) in
-            
+        
+            self.stopLoading()
             guard let result = result, error == nil else {
                 return
             }
