@@ -9,7 +9,7 @@
 import XCTest
 @testable import JohnLewisTest
 
-class MainViewControllerTests: XCTestCase {
+class MainViewControllerTests: XCTestBaseClass {
     
     var viewControllerToTest: MainViewController!
     
@@ -69,7 +69,12 @@ class MainViewControllerTests: XCTestCase {
     
     func test_CollectionView_shouldHaveOneItemIfDatasourceIsInitialisedWithOneElement() {
         //Inits
-        viewControllerToTest.productList = [Product(), Product()]
+        let json = convert(from: "{" +
+            "\"productId\": \"1212\", " +
+            "\"title\": \"Dishwasher\", " +
+            "\"image\": \"http://k.com/k.png\" " +
+        "}")!
+        viewControllerToTest.productList = [Product(from: json)!, Product(from: json)!]
         
         //Subject
         viewControllerToTest.collectionView?.reloadData()
