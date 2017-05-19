@@ -72,8 +72,13 @@ class MainViewControllerTests: XCTestBaseClass {
         let json = convert(from: "{" +
             "\"productId\": \"1212\", " +
             "\"title\": \"Dishwasher\", " +
-            "\"image\": \"http://k.com/k.png\" " +
-        "}")!
+            "\"image\": \"http://k.com/k.png\", " +
+            "\"price\": { " +
+            "\"now\": \"200.00\", " +
+            "\"currency\": \"GBP\" " +
+            "}" +
+            "}")!
+        
         viewControllerToTest.productList = [Product(from: json)!, Product(from: json)!]
         
         //Subject
